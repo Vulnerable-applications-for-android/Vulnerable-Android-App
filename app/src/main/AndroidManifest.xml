@@ -37,7 +37,6 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Accepts URIs that begin with "example://gizmos” -->
                 <data android:scheme="vacina"
                     android:host="app" />
             </intent-filter>
