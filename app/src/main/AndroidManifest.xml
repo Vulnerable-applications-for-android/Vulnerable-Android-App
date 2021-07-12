@@ -24,6 +24,24 @@
         <activity android:name=".RegisterPage" />
         <activity android:name=".CepPage" />
         <activity android:name=".WebviewPage" />
+        <activity android:name=".SpecialPage">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https"
+                      android:host="www.abneralcantara.github.io"
+                      android:pathPrefix="/VacinaJa2" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data android:scheme="vacina"
+                    android:host="app" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

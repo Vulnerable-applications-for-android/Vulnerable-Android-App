@@ -3,6 +3,7 @@ package com.abneralcantara.vacinaja2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.scottyab.rootbeer.RootBeer;
 
 public class MainActivity extends AppCompatActivity {
 
+    AirplaneModeChangeReceiver airplaneModeChangeReceiver = new AirplaneModeChangeReceiver();
     private Button button;
     private Button button1;
 
@@ -56,6 +58,17 @@ public class MainActivity extends AppCompatActivity {
                 openLogin();
             }
         });
+    }
+
+    protected void onStart() {
+        super.onStart();
+        IntentFilter filter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        registerReceiver(airplaneModeChangeReceiver, filter);
+    }
+
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(airplaneModeChangeReceiver);
     }
 
     public void openRegister()
