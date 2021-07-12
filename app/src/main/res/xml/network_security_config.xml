@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+   <domain-config>
+       <domain includeSubdomains="true">viacep.com.br</domain>
+       <pin-set>
+           <pin digest="SHA-256">M3uGk9RnuzI9Had2U8RA+AlgNjpNb8q0OZYRwb7pJX0=</pin>
+       </pin-set>
+   </domain-config>
+</network-security-config>
