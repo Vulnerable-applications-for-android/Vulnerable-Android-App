@@ -5,8 +5,10 @@ import android.os.AsyncTask;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.Scanner;
 
 public class HTTPService extends AsyncTask<Void, Void, CEP> {
@@ -22,13 +24,13 @@ public class HTTPService extends AsyncTask<Void, Void, CEP> {
         StringBuilder resposta = new StringBuilder();
         try {
             URL url = new URL("https://viacep.com.br/ws/"+ this.cep + "/json/");
-            HttpURLConnection connection = connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
+            URLConnection connection = url.openConnection();
             connection.setRequestProperty("Accept", "application/json");
             connection.setConnectTimeout(5000);
+            InputStream in = connection.getInputStream();
             connection.connect();
 
-            Scanner scanner = scanner = new Scanner(url.openStream());
+            Scanner scanner = scanner = new Scanner(in);
 
             while (scanner.hasNext()) {
                 resposta.append(scanner.next());
