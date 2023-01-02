@@ -5,12 +5,13 @@ apply plugin: 'kotlin-android'
 
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.abneralcantara.vacinaja2"
         minSdkVersion 24
+        //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
